@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture Technique - Transformation RH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a4b8c;
+            --secondary: #2e7d32;
+            --accent: #ff6f00;
+            --light: #f5f9ff;
+            --dark: #333;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --radius: 10px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f9ff 0%, #e8f4ff 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), #0d2d5a);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: var(--radius);
+            margin-bottom: 3rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .architecture {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .component {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+        
+        .component-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .connections {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+        }
+        
+        .connection-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .flow-step {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+            margin: 1rem;
+        }
+        
+        .flow-arrow {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+        
+        .demo-section {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: var(--radius);
+            margin-bottom: 3rem;
+        }
+        
+        .code-block {
+            background: var(--darker);
+            color: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin: 1rem 0;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        
+        .btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 2rem auto;
+        }
+        
+        .btn:hover {
+            background: #e65c00;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Architecture Technique Complète</h1>
+            <p>Comment toutes les technologies travaillent ensemble</p>
+        </header>
+
+        <!-- Architecture Components -->
+        <section class="architecture">
+            <div class="component">
+                <div class="component-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Base de Données</h3>
+                <p>PostgreSQL / SharePoint Lists</p>
+                <p><strong>Rôle :</strong> Stockage centralisé de toutes les données RH</p>
+            </div>
+            
+            <div class="component">
+                <div class="component-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h3>Power Query</h3>
+                <p>Nettoyage & Transformation</p>
+                <p><strong>Rôle :</strong> Nettoie et prépare les données pour l'analyse</p>
+            </div>
+            
+            <div class="component">
+                <div class="component-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Power BI</h3>
+                <p>Visualisation & Analytics</p>
+                <p><strong>Rôle :</strong> Transforme les données en insights actionnables</p>
+            </div>
+            
+            <div class="component">
+                <div class="component-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>Power Automate</h3>
+                <p>Automatisation des Workflows</p>
+                <p><strong>Rôle :</strong> Connecte tous les systèmes entre eux</p>
+            </div>
+            
+            <div class="component">
+                <div class="component-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>Application Web</h3>
+                <p>Interface Utilisateur</p>
+                <p><strong>Rôle :</strong> Point d'entrée pour les employés et managers</p>
+            </div>
+        </section>
+
+        <!-- Connection Flow -->
+        <section class="connections">
+            <h2>🔗 Comment Tout Se Connecte</h2>
+            
+            <div class="connection-flow">
+                <div class="flow-step">
+                    <div class="component-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h4>Application Web</h4>
+                    <p>L'employé saisit une demande</p>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="flow-step">
+                    <div class="component-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h4>Base de Données</h4>
+                    <p>Stockage immédiat</p>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="flow-step">
+                    <div class="component-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h4>Power Automate</h4>
+                    <p>Notification au manager</p>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="flow-step">
+                    <div class="component-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h4>Power Query</h4>
+                    <p>Mise à jour des données</p>
+                </div>
+                
+                <div class="flow-arrow">→</div>
+                
+                <div class="flow-step">
+                    <div class="component-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>Power BI</h4>
+                    <p>Dashboard mis à jour</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Demo -->
+        <section class="demo-section">
+            <h2>🛠️ Démonstration Technique</h2>
+            
+            <h3>1. Connexion Application Web → Base de Données</h3>
+            <div class="code-block">
+// Application Web (JavaScript)
+async function soumettreCongé(employeId, dates) {
+    // Envoi vers la base de données
+    const response = await fetch('/api/conges', {
+        method: 'POST',
+        body: JSON.stringify({
+            employe: employeId,
+            dates: dates,
+            statut: 'en_attente'
+        })
+    });
+    return await response.json();
+}
+            </div>
+
+            <h3>2. Power Automate Déclenché</h3>
+            <div class="code-block">
+# Power Automate se déclenche automatiquement
+Quand: Nouvel enregistrement dans la base
+Alors: 
+   - Envoyer email au manager
+   - Mettre à jour SharePoint
+   - Notifier l'employé
+            </div>
+
+            <h3>3. Power Query Nettoie les Données</h3>
+            <div class="code-block">
+// Power Query (M Language)
+let
+    Source = PostgreSQL.Database("serveur_rh"),
+    Congés = Source{[Schema="public",Item="conges"]}[Data],
+    DonnéesNettoyées = Table.TransformColumnTypes(Congés,{
+        {"date_debut", type date},
+        {"date_fin", type date},
+        {"statut", type text}
+    })
+in
+    DonnéesNettoyées
+            </div>
+
+            <h3>4. Power BI Met à Jour le Dashboard</h3>
+            <div class="code-block">
+-- Power BI (DAX)
+Congés En Attente = 
+CALCULATE(
+    COUNTROWS('Congés'),
+    'Congés'[Statut] = "en_attente"
+)
+
+Taux d'Absence = 
+DIVIDE(
+    [Jours Congés Total],
+    [Jours Ouvrables]
+)
+            </div>
+        </section>
+
+        <!-- Real Example -->
+        <section class="connections">
+            <h2>📋 Exemple Réel : Demande de Congé</h2>
+            
+            <div class="connection-flow">
+                <div class="flow-step">
+                    <h4>Étape 1</h4>
+                    <p>Marie clique sur "Demander un congé" dans l'app web</p>
+                </div>
+                
+                <div class="flow-arrow">↓</div>
+                
+                <div class="flow-step">
+                    <h4>Étape 2</h4>
+                    <p>La demande va dans PostgreSQL</p>
+                </div>
+                
+                <div class="flow-arrow">↓</div>
+                
+                <div class="flow-step">
+                    <h4>Étape 3</h4>
+                    <p>Power Automate envoie un email à son manager</p>
+                </div>
+                
+                <div class="flow-arrow">↓</div>
+                
+                <div class="flow-step">
+                    <h4>Étape 4</h4>
+                    <p>Le manager approuve depuis son téléphone</p>
+                </div>
+                
+                <div class="flow-arrow">↓</div>
+                
+                <div class="flow-step">
+                    <h4>Étape 5</h4>
+                    <p>Power BI montre le nouveau taux d'absence en temps réel</p>
+                </div>
+            </div>
+        </section>
+
+        <button class="btn" onclick="showBenefits()">
+            Voir les Bénéfices de Cette Architecture
+        </button>
+
+        <div id="benefits" style="display: none; background: white; padding: 2rem; border-radius: var(--radius); margin-top: 2rem;">
+            <h3>🎯 Bénéfices de Cette Architecture</h3>
+            <ul>
+                <li>✅ <strong>Temps Réel :</strong> Plus de délais d'attente</li>
+                <li>✅ <strong>Zero Saisie Manuelle :</strong> Plus d'erreurs humaines</li>
+                <li>✅ <strong>Automatisation Complète :</strong> Gains de productivité</li>
+                <li>✅ <strong>Données Fiables :</strong> Prise de décision améliorée</li>
+                <li>✅ <strong>Scalable :</strong> Peut gérer 10 ou 10,000 employés</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function showBenefits() {
+            const benefits = document.getElementById('benefits');
+            benefits.style.display = 'block';
+        }
+
+        // Animation for components
+        document.addEventListener('DOMContentLoaded', function() {
+            const components = document.querySelectorAll('.component');
+            
+            components.forEach((component, index) => {
+                component.style.opacity = '0';
+                component.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    component.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    component.style.opacity = '1';
+                    component.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
